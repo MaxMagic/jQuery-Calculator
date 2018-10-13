@@ -158,7 +158,10 @@
       $("#button-equal").on("click", function () {
         var operation = $("#operator").text();
         var answer = operators[operation](parseInt($("#first-number").text()), parseInt($("#second-number").text()));
-        $("#result").text(operators[operation](parseInt($("#first-number").text()), parseInt($("#second-number").text())));
+
+        // Print answer to top line instead of result line. Uncomment next line to return to normal
+        // $("#result").text(operators[operation](parseInt($("#first-number").text()), parseInt($("#second-number").text())));
+        
         clearAll();
         $("#first-number").text(answer);
       });
