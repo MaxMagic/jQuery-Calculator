@@ -86,7 +86,88 @@
 $(document).ready(function() {
 
 // Your code here...
-
+var operators = {
+    "+": function(a, b) { return a + b },
+    "-": function(a, b) { return a - b },
+    "*": function(a, b) { return a * b },
+    "/": function(a, b) { return a / b },
+    "^": function(a, b) { return a ** b }
+     // ...
+};
+$("#button-1").on("click", function() {
+        chooseNumBox(1);
+      });
+$("#button-2").on("click", function() {
+        chooseNumBox(2);
+      });
+$("#button-3").on("click", function() {
+        chooseNumBox(3);
+      });
+$("#button-plus").on("click", function() {
+        $("#operator").text("+");
+      });
+$("#button-4").on("click", function() {
+        chooseNumBox(4);
+      });
+$("#button-5").on("click", function() {
+        chooseNumBox(5);
+      });
+$("#button-6").on("click", function() {
+        chooseNumBox(6);
+      });
+$("#button-minus").on("click", function() {
+        $("#operator").text("-");
+      });
+$("#button-7").on("click", function() {
+        chooseNumBox(7);
+      });
+$("#button-8").on("click", function() {
+        chooseNumBox(8);
+      });
+$("#button-9").on("click", function() {
+        chooseNumBox(9);
+      });
+$("#button-multiply").on("click", function() {
+        $("#operator").text("*");
+      });
+$("#button-0").on("click", function() {
+        chooseNumBox(0);
+      });
+$("#button-divide").on("click", function() {
+        $("#operator").text("/");
+      });
+$("#button-power").on("click", function() {
+        $("#operator").text("^");
+      });
+$("#button-equal").on("click", function() {
+    var operation = $("#operator").text();
+        $("#result").text(operators[operation](parseInt($("#first-number").text()), parseInt($("#second-number").text())));
+      });
+$("#button-clear").on("click", function() {
+        clearAll();
+      });
+function clearAll() {
+    $("#operator").html("")
+    $("#first-number").html("");
+    $("#second-number").html("");
+    $("#result").html("");
+};
+function chooseNumBox(num) {
+    if ($("#result").html() === "") {
+        if ($("#operator").html() === "") {
+            $("#first-number").append(num);
+        } else {
+            $("#second-number").append(num);
+        }
+    } else {
+        clearAll()
+        if ($("#operator").html() === "") {
+            $("#first-number").append(num);
+        } else {
+            $("#second-number").append(num);
+        }
+    }
+}    
 
 });
 
