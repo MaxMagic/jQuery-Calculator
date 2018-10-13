@@ -157,7 +157,10 @@
       //Calculating button actions
       $("#button-equal").on("click", function () {
         var operation = $("#operator").text();
+        var answer = operators[operation](parseInt($("#first-number").text()), parseInt($("#second-number").text()));
         $("#result").text(operators[operation](parseInt($("#first-number").text()), parseInt($("#second-number").text())));
+        clearAll();
+        $("#first-number").text(answer);
       });
       $("#button-clear").on("click", function () {
         clearAll();
