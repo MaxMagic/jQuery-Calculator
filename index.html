@@ -137,7 +137,33 @@
       clearAll();
       chooseNumBox();
 
+      //Operator button actions
+      $("#button-plus").on("click", function () {
+        $("#operator").text("+");
+      });
+      $("#button-minus").on("click", function () {
+        $("#operator").text("-");
+      });
+      $("#button-multiply").on("click", function () {
+        $("#operator").text("*");
+      });
+      $("#button-divide").on("click", function () {
+        $("#operator").text("/");
+      });
+      $("#button-power").on("click", function () {
+        $("#operator").text("^");
+      });
 
+      //Calculating button actions
+      $("#button-equal").on("click", function () {
+        var operation = $("#operator").text();
+        $("#result").text(operators[operation](parseInt($("#first-number").text()), parseInt($("#second-number").text())));
+      });
+      $("#button-clear").on("click", function () {
+        clearAll();
+      });
+
+      //Number button actions
       $("#button-1").on("click", function () {
         chooseNumBox(1);
       });
@@ -146,9 +172,6 @@
       });
       $("#button-3").on("click", function () {
         chooseNumBox(3);
-      });
-      $("#button-plus").on("click", function () {
-        $("#operator").text("+");
       });
       $("#button-4").on("click", function () {
         chooseNumBox(4);
@@ -159,9 +182,6 @@
       $("#button-6").on("click", function () {
         chooseNumBox(6);
       });
-      $("#button-minus").on("click", function () {
-        $("#operator").text("-");
-      });
       $("#button-7").on("click", function () {
         chooseNumBox(7);
       });
@@ -171,31 +191,22 @@
       $("#button-9").on("click", function () {
         chooseNumBox(9);
       });
-      $("#button-multiply").on("click", function () {
-        $("#operator").text("*");
-      });
       $("#button-0").on("click", function () {
         chooseNumBox(0);
       });
-      $("#button-divide").on("click", function () {
-        $("#operator").text("/");
+      $("#button-00").on("click", function () {
+        chooseNumBox(00);
       });
-      $("#button-power").on("click", function () {
-        $("#operator").text("^");
-      });
-      $("#button-equal").on("click", function () {
-        var operation = $("#operator").text();
-        $("#result").text(operators[operation](parseInt($("#first-number").text()), parseInt($("#second-number").text())));
-      });
-      $("#button-clear").on("click", function () {
-        clearAll();
-      });
+      
+      //Clears all
       function clearAll() {
         $("#operator").html("")
         $("#first-number").html("");
         $("#second-number").html("");
         $("#result").html("");
       };
+
+      //
       function chooseNumBox(num) {
         if ($("#result").html() === "") {
           if ($("#operator").html() === "") {
